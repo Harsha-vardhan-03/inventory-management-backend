@@ -15,10 +15,8 @@ services:
         value: org.postgresql.Driver
       - key: SPRING_JPA_HIBERNATE_DDL_AUTO
         value: update
-      - key: SPRING_SQL_INIT_MODE
-        value: always
-      - key: SPRING_JPA_DEFER_DATASOURCE_INITIALIZATION
-        value: "true"
+      - key: INITIAL_SUPER_ADMIN_PASSWORD
+        sync: false
       - key: JWT_SECRET
         generateValue: true
       - key: JWT_ACCESS_TOKEN_EXPIRATION
