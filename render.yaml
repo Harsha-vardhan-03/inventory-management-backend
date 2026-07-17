@@ -33,6 +33,12 @@ services:
         sync: false
       - key: SPRING_MAIL_PASSWORD
         sync: false
+      - key: APP_EMAIL_FROM
+        sync: false
+      - key: SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH
+        value: "true"
+      - key: SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE
+        value: "true"
 
 databases:
   - name: inventory-db-hv03

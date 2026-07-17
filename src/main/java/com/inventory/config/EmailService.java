@@ -1,6 +1,7 @@
 package com.inventory.config;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -11,6 +12,7 @@ import jakarta.mail.internet.MimeMessage;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class EmailService {
     
     private final JavaMailSender mailSender;
@@ -33,8 +35,8 @@ public class EmailService {
             
             mailSender.send(message);
             
-        } catch (MessagingException e) {
-            // Silent fail - email sending failure doesn't block user creation
+        } catch (Exception e) {
+            log.error("Failed to send staff invitation email to {}", to, e);
         }
     }
     
