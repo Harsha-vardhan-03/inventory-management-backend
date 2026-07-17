@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: inventory-api-hv03
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_TOKEN_EXPIRATION
+        value: "900000"
+      - key: JWT_REFRESH_TOKEN_EXPIRATION
+        value: "604800000"
+      - key: APP_CORS_ALLOWED_ORIGINS
+        value: https://inventory-web-hv03.onrender.com
+      - key: SPRING_MAIL_HOST
+        sync: false
+      - key: SPRING_MAIL_PORT
+        value: "587"
+      - key: SPRING_MAIL_USERNAME
+        sync: false
+      - key: SPRING_MAIL_PASSWORD
+        sync: false
